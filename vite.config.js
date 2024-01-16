@@ -13,4 +13,10 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  optimizeDeps: {
+    exclude: ["oh-vue-icons/icons"]
+  },
+  ssr: {
+    noExternal: ["oh-vue-icons"]
+  }
 });
