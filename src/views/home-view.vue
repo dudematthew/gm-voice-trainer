@@ -1,99 +1,138 @@
 <script setup>
     import {
+			reactive,
         ref
     } from "vue";
 
-    // Laban effort, space, texture, age, sex, size, tempo, volume, tone, accent, problem
-    const voiceModifiers = ref([{
+    // Laban effort, space, texture, age, sex, race, profession, size, tempo, volume, tone, accent, problem
+    const voiceModifiers = reactive([
+        {
             id: "laban_effort",
             name: "Wysiłki Labana",
             description: "Wysiłki Labana to zestaw trzech parametrów, które opisują sposób wykonywania ruchu. Są to: czas, przestrzeń i siła. Każdy z tych parametrów może być zdefiniowany jako dynamiczny lub statyczny. W ten sposób powstaje 8 możliwych kombinacji, które określają sposób wykonywania ruchu. Wysiłki Labana są często wykorzystywane w pracy z aktorem, tancerzem, wokalistą, a także w pracy z osobami, które mają problemy z komunikacją werbalną.",
-            icon: "laban_effort",
+            icon: "co-voice-over-record",
+            checked: true,
+        },
+        {
+            id: "age",
+            name: "Wiek",
+            description: "Age of the speaker.",
+            icon: "ri-mental-health-line",
+            checked: true,
+        },
+        {
+            id: "sex",
+            name: "Płeć",
+            description: "Sex of the speaker.",
+            icon: "la-transgender-solid",
+            checked: true,
+        },
+        {
+            id: "race",
+            name: "Rasa",
+            description: "Race of the speaker.",
+            icon: "gi-dwarf-face",
+            checked: true,
+        },
+        {
+            id: "profession",
+            name: "Profesja",
+            description: "Profession of the speaker.",
+            icon: "md-workoutline-outlined",
+            checked: true,
         },
         {
             id: "space",
             name: "Przestrzeń",
             description: "Opisuje sposób, w jaki dźwięk wypełnia przestrzeń. Może być zdefiniowany jako bliski, odległy, przestrzenny, zamknięty, otwarty itp.",
-            icon: "space",
+            icon: "bi-person-workspace",
+            checked: false,
         },
         {
             id: "texture",
             name: "Tekstura",
             description: "Opisuje jakość dźwięku, czy jest gładki, chropowaty, jednolity, zmienny itp.",
-            icon: "texture",
+            icon: "md-texture",
+            checked: false,
+        },
+        {
+            id: "size",
+            name: "Wielkość",
+            description: "Size of the speaker.",
+            icon: "co-resize-both",
+            checked: false,
+        },
+        {
+            id: "tempo",
+            name: "Tempo",
+            description: "Tempo of the speech.",
+            icon: "gi-temporary-shield",
+            checked: false,
+        },
+        {
+            id: "volume",
+            name: "Głośność",
+            description: "Volume of the speech.",
+            icon: "bi-volume-up",
+            checked: false,
+        },
+        {
+            id: "tone",
+            name: "Ton",
+            description: "Tone of the speech.",
+            icon: "gi-sound-waves",
+            checked: false,
+        },
+        {
+            id: "accent",
+            name: "Akcent",
+            description: "Accent of the speaker.",
+            icon: "co-speech",
+            checked: false,
+        },
+        {
+            id: "problem",
+            name: "Problem",
+            description: "Problem areas identified in the speaker's voice.",
+            icon: "md-reportproblem-outlined",
+            checked: false,
         },
     ]);
+
 </script>
 
 <template>
-    <main class="w-[100%]">
-        <div class="flex flex-col bg-dark-800 sm:flex-row items-center p-8 mx-auto w-[100%] rounded-md text-[#333] font-[sans-serif]">
-            <div>
-                <h1 class="text-3xl font-extrabold">Porozmawiajmy</h1>
-                <p class="text-gray-500 mt-3">Jak dobrym Mistrzem Gry jesteś, jeśli chodzi o głosy postaci? Wygeneruj
-                    kombinację i sprawdź się!</p>
-                <div class="mt-12">
-                    <h2 class="text-lg font-extrabold">Jakie modyfikatory, Wariacie?</h2>
-                    <ul class="mt-3 flex flex-row flex-auto">
-                        <li class="flex flex-row whitespace-nowrap bg-blue-300 rounded-xl m-1 p-2 font-bold"
-                            v-for="modifier in voiceModifiers" :key="modifier.id">
-                            <span>
-                                <input type="checkbox" class="mr-2" />
-                                <v-icon name="co-voice-over-record" class="text-black" />
-                                <span class="ml-2 break-normal">{{ modifier.name }}</span>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="mt-12">
-                    <h2 class="text-lg font-extrabold">Socials</h2>
-                    <ul class="flex mt-3 space-x-4">
-                        <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                            <a href="javascript:void(0)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#007bff'
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M6.812 13.937H9.33v9.312c0 .414.335.75.75.75l4.007.001a.75.75 0 0 0 .75-.75v-9.312h2.387a.75.75 0 0 0 .744-.657l.498-4a.75.75 0 0 0-.744-.843h-2.885c.113-2.471-.435-3.202 1.172-3.202 1.088-.13 2.804.421 2.804-.75V.909a.75.75 0 0 0-.648-.743A26.926 26.926 0 0 0 15.071 0c-7.01 0-5.567 7.772-5.74 8.437H6.812a.75.75 0 0 0-.75.75v4c0 .414.336.75.75.75zm.75-3.999h2.518a.75.75 0 0 0 .75-.75V6.037c0-2.883 1.545-4.536 4.24-4.536.878 0 1.686.043 2.242.087v2.149c-.402.205-3.976-.884-3.976 2.697v2.755c0 .414.336.75.75.75h2.786l-.312 2.5h-2.474a.75.75 0 0 0-.75.75V22.5h-2.505v-9.312a.75.75 0 0 0-.75-.75H7.562z"
-                                        data-original="#000000" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                            <a href="javascript:void(0)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#007bff'
-                                    viewBox="0 0 511 512">
-                                    <path
-                                        d="M111.898 160.664H15.5c-8.285 0-15 6.719-15 15V497c0 8.285 6.715 15 15 15h96.398c8.286 0 15-6.715 15-15V175.664c0-8.281-6.714-15-15-15zM96.898 482H30.5V190.664h66.398zM63.703 0C28.852 0 .5 28.352.5 63.195c0 34.852 28.352 63.2 63.203 63.2 34.848 0 63.195-28.352 63.195-63.2C126.898 28.352 98.551 0 63.703 0zm0 96.395c-18.308 0-33.203-14.891-33.203-33.2C30.5 44.891 45.395 30 63.703 30c18.305 0 33.195 14.89 33.195 33.195 0 18.309-14.89 33.2-33.195 33.2zm289.207 62.148c-22.8 0-45.273 5.496-65.398 15.777-.684-7.652-7.11-13.656-14.942-13.656h-96.406c-8.281 0-15 6.719-15 15V497c0 8.285 6.719 15 15 15h96.406c8.285 0 15-6.715 15-15V320.266c0-22.735 18.5-41.23 41.235-41.23 22.734 0 41.226 18.495 41.226 41.23V497c0 8.285 6.719 15 15 15h96.403c8.285 0 15-6.715 15-15V302.066c0-79.14-64.383-143.523-143.524-143.523zM466.434 482h-66.399V320.266c0-39.278-31.953-71.23-71.226-71.23-39.282 0-71.239 31.952-71.239 71.23V482h-66.402V190.664h66.402v11.082c0 5.77 3.309 11.027 8.512 13.524a15.01 15.01 0 0 0 15.875-1.82c20.313-16.294 44.852-24.907 70.953-24.907 62.598 0 113.524 50.926 113.524 113.523zm0 0"
-                                        data-original="#000000" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                            <a href="javascript:void(0)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#007bff'
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 9.3a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Zm0-1.8a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm5.85-.225a1.125 1.125 0 1 1-2.25 0 1.125 1.125 0 0 1 2.25 0ZM12 4.8c-2.227 0-2.59.006-3.626.052-.706.034-1.18.128-1.618.299a2.59 2.59 0 0 0-.972.633 2.601 2.601 0 0 0-.634.972c-.17.44-.265.913-.298 1.618C4.805 9.367 4.8 9.714 4.8 12c0 2.227.006 2.59.052 3.626.034.705.128 1.18.298 1.617.153.392.333.674.632.972.303.303.585.484.972.633.445.172.918.267 1.62.3.993.047 1.34.052 3.626.052 2.227 0 2.59-.006 3.626-.052.704-.034 1.178-.128 1.617-.298.39-.152.674-.333.972-.632.304-.303.485-.585.634-.972.171-.444.266-.918.299-1.62.047-.993.052-1.34.052-3.626 0-2.227-.006-2.59-.052-3.626-.034-.704-.128-1.18-.299-1.618a2.619 2.619 0 0 0-.633-.972 2.595 2.595 0 0 0-.972-.634c-.44-.17-.914-.265-1.618-.298-.993-.047-1.34-.052-3.626-.052ZM12 3c2.445 0 2.75.009 3.71.054.958.045 1.61.195 2.185.419A4.388 4.388 0 0 1 19.49 4.51c.457.45.812.994 1.038 1.595.222.573.373 1.227.418 2.185.042.96.054 1.265.054 3.71 0 2.445-.009 2.75-.054 3.71-.045.958-.196 1.61-.419 2.185a4.395 4.395 0 0 1-1.037 1.595 4.44 4.44 0 0 1-1.595 1.038c-.573.222-1.227.373-2.185.418-.96.042-1.265.054-3.71.054-2.445 0-2.75-.009-3.71-.054-.958-.045-1.61-.196-2.185-.419A4.402 4.402 0 0 1 4.51 19.49a4.414 4.414 0 0 1-1.037-1.595c-.224-.573-.374-1.227-.419-2.185C3.012 14.75 3 14.445 3 12c0-2.445.009-2.75.054-3.71s.195-1.61.419-2.185A4.392 4.392 0 0 1 4.51 4.51c.45-.458.994-.812 1.595-1.037.574-.224 1.226-.374 2.185-.419C9.25 3.012 9.555 3 12 3Z">
-                                    </path>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
+    <main class="flex flex-col w-[100%] items-center">
+        <div class="bg-dark-500 mt-[200px] w-10/12 flex flex-row rounded-md">
+            <div class="w-6/12 p-12">
+                <h1 class="text-3xl py-2 font-bold text-accent-400">Porozmawiajmy!</h1>
+                <h2 class="text-lg py-1">Jak wiele różnych postaci jesteś w stanie odegrać jako Mistrz Gry? Sprawdź się!</h2>
+
+                <ul class="flex flex-row flex-wrap my-2 py-2 gap-2">
+                    <li class="flex flex-row flex-wrap rounded-md px-3 py-2 transition-all bg-dark-300 cursor-pointer" :class="voiceModifier.checked ? 'bg-primary-500' : 'hover:bg-primary-400'" v-for="voiceModifier in voiceModifiers" :key="voiceModifier.id" @click="voiceModifier.checked = !voiceModifier.checked">
+                        <div class="inline-flex items-center">
+                            <label class="relative flex cursor-pointer items-center rounded-full mr-2" :for="'checkbox-' + voiceModifier.id"
+                                data-ripple-dark="true">
+                                <input type="checkbox" :id="'checkbox-' + voiceModifier.id"
+                                    class="before:content[''] peer relative h-6 w-6 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-accent-400 checked:bg-accent-400 checked:before:bg-accent-400 hover:before:opacity-10"
+                                    v-model="voiceModifier.checked"/>
+                                <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-dark-800 opacity-0 transition-opacity peer-checked:opacity-100">
+                                    <v-icon :name="voiceModifier.icon" class="p-0.2"></v-icon>
+                                </div>
+                            </label>
+                            <span>{{ voiceModifier.name }}</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="flex flex-row justify-end w-full">
+                    <button class="bg-dark-300 p-3 mx-2 rounded-md">Ustawienia</button>
+                    <button class="bg-primary-500 p-3 mx-2 rounded-md">Generuj NPC</button>
                 </div>
             </div>
-
-            <form class="ml-auto space-y-4">
-                <input type='text' placeholder='Name'
-                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" />
-                <input type='email' placeholder='Email'
-                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" />
-                <input type='text' placeholder='Subject'
-                    class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" />
-                <textarea placeholder='Message' rows="6"
-                    class="w-full rounded-md px-4 border text-sm pt-2.5 outline-[#007bff]"></textarea>
-                <button type='button'
-                    class="text-white bg-[#007bff] hover:bg-blue-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">Send</button>
-            </form>
+            <div class="w-6/12 p-12">
+                Prawy div
+            </div>
         </div>
     </main>
 </template>

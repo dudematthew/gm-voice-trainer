@@ -1,16 +1,13 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-import LogoSVG from "./assets/logo.svg?component";
-</script>
-
 <template>
   <RouterView />
 </template>
 
-<style scoped lang="sass">
-
-  body
-    @apply bg-dark-800
-
+<style lang="scss">
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: theme('colors.dark.800');
+    color: theme('colors.on-dark.300');
+    font-family: theme('fontFamily.sans');
+  }
 </style>

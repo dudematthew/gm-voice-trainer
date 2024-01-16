@@ -8,9 +8,38 @@ import router from "./router";
 
 import "./assets/main.css";
 
-import { CoVoiceOverRecord } from "oh-vue-icons/icons";
+import { 
+    PxCheck, 
+    CoVoiceOverRecord, 
+    BiPersonWorkspace,
+    MdTexture,
+    RiMentalHealthLine,
+    LaTransgenderSolid,
+    GiDwarfFace,
+    MdWorkoutlineOutlined,
+    CoResizeBoth,
+    GiTemporaryShield,
+    BiVolumeUp,
+    GiSoundWaves,
+    CoSpeech,
+    MdReportproblemOutlined,
+} from "oh-vue-icons/icons";
 
-addIcons(CoVoiceOverRecord);
+addIcons(CoVoiceOverRecord, 
+    PxCheck, 
+    BiPersonWorkspace,
+    MdTexture,
+    RiMentalHealthLine,
+    LaTransgenderSolid,
+    GiDwarfFace,
+    MdWorkoutlineOutlined,
+    CoResizeBoth,
+    GiTemporaryShield,
+    BiVolumeUp,
+    GiSoundWaves,
+    CoSpeech,
+    MdReportproblemOutlined,
+);
 
 const app = createApp(App);
 
