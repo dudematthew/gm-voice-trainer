@@ -1,0 +1,61 @@
+{
+	"name": "gm-voice-trainer",
+	"description": "Simple app made to train DMs with their voice",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/richardevcom/vue3-boilerplate.git"
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview --port 4173",
+		"lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+		"push:prod": "npm run push:prod:patch",
+		"push:prod:patch": "cross-env VERSION=patch node push-prod.js",
+		"push:prod:minor": "cross-env VERSION=minor node push-prod.js",
+		"push:prod:major": "cross-env VERSION=major node push-prod.js"
+	},
+	"dependencies": {
+		"pinia": "^2.0.22",
+		"vue": "^3.2.39",
+		"vue-router": "^4.1.5"
+	},
+	"devDependencies": {
+		"@rushstack/eslint-patch": "^1.2.0",
+		"@vitejs/plugin-vue": "^3.1.0",
+		"@vue/eslint-config-prettier": "^7.0.0",
+		"autoprefixer": "^10.4.11",
+		"cssnano": "^5.1.13",
+		"eslint": "^8.23.1",
+		"eslint-plugin-vue": "^9.5.1",
+		"postcss": "^8.4.16",
+		"postcss-import": "^15.0.0",
+		"prettier": "^2.7.1",
+		"sass": "^1.54.9",
+		"tailwindcss": "^3.1.8",
+		"vite": "^3.1.2",
+		"vite-svg-loader": "^3.6.0"
+	},
+	"keywords": [
+		"vue",
+		"vue3",
+		"vuejs",
+		"vue3js",
+		"boilerplate",
+		"template",
+		"router",
+		"vuerouter",
+		"vue-router",
+		"tailwind",
+		"tailwindcss",
+		"tailwind-css",
+		"pinia",
+		"svg",
+		"gm",
+		"voice",
+		"trainer",
+		"gm-voice-trainer"
+	],
+	"author": "dudematthew"
+}
