@@ -74,6 +74,10 @@ module.exports = {
         'on-secondary': '#F7FAFC', // Off White
         'on-surface': '#A0AEC0', // Dark Grayish Blue
       },
+      transitionProperty: {
+        'height': 'height',
+        'width': 'width',
+      },
     },
   },
   plugins: [],
