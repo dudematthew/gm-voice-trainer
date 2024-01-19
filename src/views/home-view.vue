@@ -1,5 +1,6 @@
-<script setup>
-    import {
+<script setup lang="ts">
+    import VoiceModifier from "@/types/voice-modifier";
+import {
 			reactive,
         ref
     } from "vue";
@@ -314,7 +315,7 @@
                 }
             ]
         },
-    ]);
+    ] as VoiceModifier[]);
 
     const generatedNpc = reactive([]);
 
